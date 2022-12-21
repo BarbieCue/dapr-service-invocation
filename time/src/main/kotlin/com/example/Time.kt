@@ -15,7 +15,7 @@ fun main() {
 fun Application.module() {
     this@module.routing {
         get("/time") {
-            call.respondText("${listOf("5", "6", "9", "11", "12", ).random()} o'clock")
+            call.respondText("${listOf("5", "6", "9", "11", "12").random()} o'clock")
         }
     }
 }
