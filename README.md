@@ -2,7 +2,7 @@
 
 The following scenario is implemented in this project.
 
-![scenario](docs/scenario.png)
+![scenario](docs/scenario.jpg)
 
 A client wants to have some information about the weather, the time and some news.
 He retrieves these information via the _Overview service_.
