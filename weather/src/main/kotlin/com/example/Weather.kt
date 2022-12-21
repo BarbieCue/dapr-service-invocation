@@ -1,21 +1,12 @@
 package com.example
 
-import io.ktor.client.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.client.engine.cio.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
-import kotlinx.serialization.json.*
 
 const val port = 8081
-const val daprSidecarPort = 3501
 
 fun main() {
     embeddedServer(Netty, port = port, host = "0.0.0.0", module = Application::module).start(wait = true)
@@ -24,27 +15,7 @@ fun main() {
 fun Application.module() {
     this@module.routing {
         get("/weather") {
-
-            val client = HttpClient(CIO) {
-                install(ContentNegotiation) {
-                    json(Json {
-                        prettyPrint = true
-                        ignoreUnknownKeys = true
-                    })
-                }
-            }
-
-            val daprHost = "http://localhost"
-            val daprTargetAppId = "weather-service"
-            val daprTargetMethod = "/info"
-
-            val response = client.get("${daprHost}:${daprSidecarPort}${daprTargetMethod}") {
-                contentType(ContentType.Application.Json)
-                header("dapr-app-id", daprTargetAppId)
-                setBody("Hi, im foo service. I call the dapr sidecar of bar service.")
-            }
-
-            call.respondText(response.bodyAsText())
+            call.respondText("${listOf("rainy at 15", "sunny at 32", "foggy at 5").random()} degrees")
         }
     }
 }
