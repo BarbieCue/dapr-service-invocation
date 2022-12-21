@@ -14,16 +14,18 @@ This is the moment when the dapr service invocation comes into play.
 
 ## Get started
 
-### 1. Build all services
+### 1. Build each service
 ```shell
-Foo/gradlew buildFatJar -p Foo
-Bar/gradlew buildFatJar -p Bar
-Baz/gradlew buildFatJar -p Baz
+dashboard/gradlew buildFatJar -p dashboard
+weather/gradlew buildFatJar -p weather
+time/gradlew buildFatJar -p time
+news/gradlew buildFatJar -p news
 ```
 
 ### 2. Run each service alongside a dapr sidecar
 ```shell
-dapr run --app-id foo-service --app-port 8080 --app-protocol http --dapr-http-port 3500 -- java -cp Foo/build/libs/fat.jar com.example.FooKt
-dapr run --app-id bar-service --app-port 8081 --app-protocol http --dapr-http-port 3501 -- java -cp Bar/build/libs/fat.jar com.example.BarKt
-dapr run --app-id baz-service --app-port 8082 --app-protocol http --dapr-http-port 3502 -- java -cp Baz/build/libs/fat.jar com.example.BazKt
+dapr run --app-id dashboard-service --app-port 8080 --app-protocol http --dapr-http-port 3500 -- java -cp dashboard/build/libs/fat.jar com.example.DashboardKt
+dapr run --app-id weather-service --app-port 8081 --app-protocol http --dapr-http-port 3501 -- java -cp weather/build/libs/fat.jar com.example.WeatherKt
+dapr run --app-id time-service --app-port 8082 --app-protocol http --dapr-http-port 3502 -- java -cp time/build/libs/fat.jar com.example.TimeKt
+dapr run --app-id news-service --app-port 8083 --app-protocol http --dapr-http-port 3503 -- java -cp news/build/libs/fat.jar com.example.NewsKt
 ```
