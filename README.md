@@ -12,9 +12,20 @@ dapr sidecar to collect the information from the other services.
 The sidecar then requests the information from the other services sidecars.
 This is the moment when the dapr service invocation comes into play.
 
+
+## Prerequisites
+
+- _dapr_ is [installed](https://docs.dapr.io/getting-started/install-dapr-cli/)
+
+
 ## Get started
 
-### 1. Build each service
+### 1. Build all services
+```shell
+./gradlew buildAllServices
+```
+
+Alternatively, build each service in a single step
 ```shell
 dashboard/gradlew buildFatJar -p dashboard
 weather/gradlew buildFatJar -p weather
@@ -28,4 +39,9 @@ dapr run --app-id dashboard-service --app-port 8080 --app-protocol http --dapr-h
 dapr run --app-id weather-service --app-port 8081 --app-protocol http --dapr-http-port 3501 -- java -cp weather/build/libs/fat.jar com.example.WeatherKt
 dapr run --app-id time-service --app-port 8082 --app-protocol http --dapr-http-port 3502 -- java -cp time/build/libs/fat.jar com.example.TimeKt
 dapr run --app-id news-service --app-port 8083 --app-protocol http --dapr-http-port 3503 -- java -cp news/build/libs/fat.jar com.example.NewsKt
+```
+
+### 3. Be the client - view the dashboard
+```shell
+curl http://localhost:8080/dashboard
 ```
