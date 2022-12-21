@@ -22,6 +22,7 @@ This is where the dapr service invocation comes into play.
 ## Get started
 
 ### 1. Build all services
+
 ```shell
 ./gradlew buildAllServices
 ```
@@ -35,12 +36,16 @@ news/gradlew buildFatJar -p news
 ```
 
 ### 2. Run each service alongside a dapr sidecar
+
 ```shell
 dapr run --app-id dashboard-service --app-port 8080 --app-protocol http --dapr-http-port 3500 -- java -cp dashboard/build/libs/fat.jar com.example.DashboardKt
 dapr run --app-id weather-service --app-port 8081 --app-protocol http --dapr-http-port 3501 -- java -cp weather/build/libs/fat.jar com.example.WeatherKt
 dapr run --app-id time-service --app-port 8082 --app-protocol http --dapr-http-port 3502 -- java -cp time/build/libs/fat.jar com.example.TimeKt
 dapr run --app-id news-service --app-port 8083 --app-protocol http --dapr-http-port 3503 -- java -cp news/build/libs/fat.jar com.example.NewsKt
 ```
+
+As you can see, the dapr CLI is used to start up both, the dapr sidecar and the service.
+
 
 ### 3. Be the client - view the dashboard
 ```shell
