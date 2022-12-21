@@ -15,7 +15,7 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.*
 
 const val port = 8081
-const val daprPort = 3501
+const val daprSidecarPort = 3501
 
 fun main() {
     embeddedServer(Netty, port = port, host = "0.0.0.0", module = Application::module).start(wait = true)
@@ -38,7 +38,7 @@ fun Application.module() {
             val daprTargetAppId = "weather-service"
             val daprTargetMethod = "/info"
 
-            val response = client.get("${daprHost}:${daprPort}${daprTargetMethod}") {
+            val response = client.get("${daprHost}:${daprSidecarPort}${daprTargetMethod}") {
                 contentType(ContentType.Application.Json)
                 header("dapr-app-id", daprTargetAppId)
                 setBody("Hi, im foo service. I call the dapr sidecar of bar service.")
