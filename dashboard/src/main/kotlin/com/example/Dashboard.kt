@@ -15,7 +15,7 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.*
 
 const val port = 8080
-const val daprSidecarPort = 3500
+const val sidecarPort = 3500
 
 fun main() {
     embeddedServer(Netty, port = port, host = "0.0.0.0", module = Application::module).start(wait = true)
@@ -34,17 +34,17 @@ fun Application.module() {
                 }
             }
 
-            val weather = client.get("http://localhost:${daprSidecarPort}/weather") {
+            val weather = client.get("http://localhost:${sidecarPort}/weather") {
                 contentType(ContentType.Application.Json)
                 header("dapr-app-id", "weather-service")
             }.bodyAsText()
 
-            val time = client.get("http://localhost:${daprSidecarPort}/time") {
+            val time = client.get("http://localhost:${sidecarPort}/time") {
                 contentType(ContentType.Application.Json)
                 header("dapr-app-id", "time-service")
             }.bodyAsText()
 
-            val news = client.get("http://localhost:${daprSidecarPort}/news") {
+            val news = client.get("http://localhost:${sidecarPort}/news") {
                 contentType(ContentType.Application.Json)
                 header("dapr-app-id", "news-service")
             }.bodyAsText()
