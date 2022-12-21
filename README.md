@@ -1,6 +1,8 @@
 # dapr example - service invocation
 
-The following scenario is implemented in this project.
+<a href="https://www.dapr.io/"><img src="docs/dapr.svg" alt="dapr" width="100" /></a>
+
+The following scenario is implemented here.
 
 ![scenario](docs/scenario.jpg)
 
@@ -51,3 +53,6 @@ As you can see, the dapr CLI is used to start up both, the dapr sidecar and the 
 ```shell
 curl http://localhost:8080/dashboard
 ```
+
+# References
+- [dapr concepts](https://docs.dapr.io/concepts/)
