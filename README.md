@@ -56,3 +56,4 @@ curl http://localhost:8080/dashboard
 
 # References
 - [dapr concepts](https://docs.dapr.io/concepts/)
+- [dapr service invocation explained](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/)
