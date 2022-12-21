@@ -4,7 +4,6 @@ import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
-import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
@@ -25,17 +24,14 @@ fun Application.module() {
             val client = HttpClient(CIO)
 
             val weather = client.get("http://localhost:${sidecarPort}/weather") {
-                contentType(ContentType.Application.Json)
                 header("dapr-app-id", "weather-service")
             }.bodyAsText()
 
             val time = client.get("http://localhost:${sidecarPort}/time") {
-                contentType(ContentType.Application.Json)
                 header("dapr-app-id", "time-service")
             }.bodyAsText()
 
             val news = client.get("http://localhost:${sidecarPort}/news") {
-                contentType(ContentType.Application.Json)
                 header("dapr-app-id", "news-service")
             }.bodyAsText()
 
