@@ -5,12 +5,13 @@ The following scenario is implemented in this project.
 ![scenario](docs/scenario.png)
 
 A client wants to have some information about the weather, the time and some news.
-he retrieves these information via the _Overview service_.
-The overview service collects these single information from three separate services.
+He retrieves these information via the _Overview service_.
+The overview service collects all these single information from three separate services.
 But not by calling the services directly. Instead, the overview service requests its own
-dapr sidecar to collect the information from the other services. 
+dapr sidecar to collect the information from the other services providing a _service name_ 
+and the _endpoint method_.
 The sidecar then requests the information from the other services sidecars.
-This is the moment when the dapr service invocation comes into play.
+This is where the dapr service invocation comes into play.
 
 
 ## Prerequisites
