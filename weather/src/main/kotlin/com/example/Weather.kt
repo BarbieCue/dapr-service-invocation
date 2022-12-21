@@ -6,10 +6,10 @@ import io.ktor.server.netty.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-const val port = 8081
+const val servicePort = 8081
 
 fun main() {
-    embeddedServer(Netty, port = port, host = "0.0.0.0", module = Application::module).start(wait = true)
+    embeddedServer(Netty, port = servicePort, host = "0.0.0.0", module = Application::module).start(wait = true)
 }
 
 fun Application.module() {
