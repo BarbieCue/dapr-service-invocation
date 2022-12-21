@@ -14,9 +14,11 @@ import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.*
 
+const val port = 8080
+const val daprPort = 3500
+
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
-        .start(wait = true)
+    embeddedServer(Netty, port = port, host = "0.0.0.0", module = Application::module).start(wait = true)
 }
 
 fun Application.module() {
@@ -32,7 +34,6 @@ fun Application.module() {
                 }
             }
 
-            val daprPort = 3500
             val daprHost = "http://localhost"
             val daprTargetAppId = "dashboard-service"
             val daprTargetMethod = "/info"
