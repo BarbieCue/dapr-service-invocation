@@ -7,9 +7,9 @@ The following scenario is implemented here.
 ![scenario](docs/scenario.jpg)
 
 A client wants to have some information about the weather, the time and some news.
-He retrieves these information via the _Overview service_.
-The overview service collects all these single information from three separate services.
-But not by calling the services directly. Instead, the overview service requests its own
+He retrieves these information via the _Dashboard service_.
+The dashboard service collects all these single information from three separate services.
+But not by calling the services directly. Instead, the dashboard service requests its own
 dapr sidecar to collect the information from the other services providing a _service name_ 
 and the _endpoint method_.
 The sidecar then requests the information from the other services sidecars.
