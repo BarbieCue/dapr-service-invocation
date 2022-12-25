@@ -7,11 +7,11 @@ The following scenario is implemented here.
 ![scenario](docs/scenario.jpg)
 
 A client wants to have some information about the weather, the time and some news.
-He retrieves these information via the _Dashboard service_.
+He retrieves these information via the _dashboard service_.
 The dashboard service collects all these single information from three separate services.
 But not by calling the services directly. Instead, the dashboard service requests its own
-dapr sidecar to collect the information from the other services providing a _service name_ 
-and the _endpoint method_.
+dapr sidecar to collect the information from the other services providing their _service names_ 
+and _endpoint methods_.
 The sidecar then requests the information from the other services sidecars.
 This is where the dapr service invocation comes into play.
 
