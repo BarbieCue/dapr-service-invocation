@@ -18,7 +18,7 @@ This is where the dapr service invocation comes into play.
 
 ## Prerequisites
 
-- [dapr](https://docs.dapr.io/getting-started/install-dapr-cli/)
+- [dapr CLI](https://docs.dapr.io/getting-started/install-dapr-cli/)
 - Java (Version >=17)
 
 
