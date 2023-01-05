@@ -7,18 +7,19 @@ The following scenario is implemented here.
 ![scenario](docs/scenario.jpg)
 
 A client wants to have some information about the weather, the time and some news.
-He retrieves these information via the _Overview service_.
-The overview service collects all these single information from three separate services.
-But not by calling the services directly. Instead, the overview service requests its own
-dapr sidecar to collect the information from the other services providing a _service name_ 
-and the _endpoint method_.
+He retrieves these information via the _dashboard service_.
+The dashboard service collects all these single information from three separate services.
+But not by calling the services directly. Instead, the dashboard service requests its own
+dapr sidecar to collect the information from the other services providing their _service names_ 
+and _endpoint methods_.
 The sidecar then requests the information from the other services sidecars.
 This is where the dapr service invocation comes into play.
 
 
 ## Prerequisites
 
-- _dapr_ is [installed](https://docs.dapr.io/getting-started/install-dapr-cli/)
+- [dapr CLI](https://docs.dapr.io/getting-started/install-dapr-cli/)
+- Java (Version >=17)
 
 
 ## Get started
@@ -30,7 +31,7 @@ This is where the dapr service invocation comes into play.
 ```
 
 Alternatively, build each service in a single step
-```shell
+```
 l
 ./gradlew buildFatJar -p weather
 ./gradlew buildFatJar -p time
