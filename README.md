@@ -31,10 +31,10 @@ This is where the dapr service invocation comes into play.
 
 Alternatively, build each service in a single step
 ```shell
-dashboard/gradlew buildFatJar -p dashboard
-weather/gradlew buildFatJar -p weather
-time/gradlew buildFatJar -p time
-news/gradlew buildFatJar -p news
+l
+./gradlew buildFatJar -p weather
+./gradlew buildFatJar -p time
+./gradlew buildFatJar -p news
 ```
 
 ### 2. Run each service alongside a dapr sidecar
