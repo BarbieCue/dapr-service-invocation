@@ -30,13 +30,6 @@ This is where the dapr service invocation comes into play.
 ./gradlew buildAllServices
 ```
 
-Alternatively, build each service in a single step
-```
-./gradlew buildFatJar -p weather
-./gradlew buildFatJar -p time
-./gradlew buildFatJar -p news
-```
-
 ### 2. Run each service alongside a dapr sidecar
 
 ```shell
@@ -47,7 +40,6 @@ dapr run --app-id news-service --app-port 8083 --app-protocol http --dapr-http-p
 ```
 
 As you can see, the dapr CLI is used to start up both, the dapr sidecar and the service.
-
 
 ### 3. Be the client - view the dashboard
 ```shell
