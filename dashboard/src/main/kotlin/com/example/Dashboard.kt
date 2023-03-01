@@ -18,7 +18,8 @@ fun main() {
 }
 
 fun Application.module() {
-    this@module.routing {
+    routing {
+
         get("/dashboard") {
 
             val client = HttpClient(CIO)

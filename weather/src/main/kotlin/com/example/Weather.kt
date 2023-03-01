@@ -13,7 +13,8 @@ fun main() {
 }
 
 fun Application.module() {
-    this@module.routing {
+    routing {
+
         get("/weather") {
             call.respondText("${listOf("rainy at 15", "sunny at 32", "foggy at 5").random()} degrees")
         }

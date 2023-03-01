@@ -13,7 +13,8 @@ fun main() {
 }
 
 fun Application.module() {
-    this@module.routing {
+    routing {
+
         get("/news") {
             call.respondText(listOf(
                 "Bob married Alice",
